@@ -28,7 +28,7 @@ const copyFile = () => {
             resolve({
                 ok: true,
                 message: 'stylesheet attached successfully!'
-            });
+            }); 
         });
     });
 };
