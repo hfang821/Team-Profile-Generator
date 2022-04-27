@@ -225,10 +225,13 @@ const addIntern = ()  => {
     })
 }
 
-const finished = ()  => {
-    writeFile(allEmployees);
-    copyFile();
+getManager();
+
+const finished = (allEmployees)  => {
+    module.exports(allEmployees);
+    return;
 }
+
 
 /*
 const promptGithub = employeeInfo =>{
