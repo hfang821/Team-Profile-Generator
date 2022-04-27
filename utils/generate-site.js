@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fileContent = require('../src/page-template');
+const fileContent = require('../index');
 
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
@@ -34,4 +34,4 @@ const copyFile = () => {
     });
 };
 
-module.exports = {writeFile, copyFile};
+//module.exports = {writeFile, copyFile};

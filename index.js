@@ -1,7 +1,7 @@
 //const {writeFile, copyFile} = require('./utils/generate-site');
 const inquirer = require('inquirer');
-//const fs = require('fs');
-//const generatePage = require('./src/page-template');
+const fs = require('fs');
+const generatePage = require('./src/page-template');
 
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -228,9 +228,47 @@ const addIntern = ()  => {
 getManager();
 
 const finished = (allEmployees)  => {
-    module.exports(allEmployees);
-    return;
+    console.log(allEmployees);
+    const html = generatePage(allEmployees);
+
+    const writeFile = html => {
+        return new Promise((resolve, reject) => {
+            fs.writeFile('./dist/index.html', html, err=> {
+                if(err){
+                    //if error: reject the promise and send the error to the promise's catch method.
+                    reject(err);
+                    return;
+                }
+    
+                //resolve the promise if everything went fine.
+                resolve({
+                    ok: true,
+                    message: 'file created successfully!'
+                });
+            });
+        });
+    };
+    
+    const copyFile = () => {
+        return new Promise((resolve, reject) => {
+            fs.copyFile('./src.style.css', './dist/style.css', err => {
+                if(err){
+                    reject(err);
+                    return;
+                }
+                resolve({
+                    ok: true,
+                    message: 'stylesheet attached successfully!'
+                }); 
+            });
+        });
+    };
+
+    writeFile(html);
+    copyFile();
+
 }
+
 
 
 /*

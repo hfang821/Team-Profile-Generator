@@ -1,5 +1,3 @@
-const employeeInfo = require('../index');
-
 const generateHTML = employeeInfo => {
     return `
     <!DOCTYPE html>
