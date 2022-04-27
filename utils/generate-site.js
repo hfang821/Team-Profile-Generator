@@ -1,4 +1,5 @@
 const fs = require('fs');
+const fileContent = require('../src/page-template');
 
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {

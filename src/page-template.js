@@ -17,14 +17,8 @@ const generateHTML = employeeInfo => {
     </header>
 
     <div id ="employees">
-        <div class="card">
-            <h3 class="card-header">${employeeInfo[0].name}</h3>
-            <img class="icon"></img>
-            <p class="role">Manager</p> 
-            <p class="id">${employeeInfo[0].id}</p>
-            <p class="email">${employeeInfo[0].email}</p>
-            <p class="custom">${employeeInfo[0].officeNumber}</p>
-        </div>
+        ${appendEmployee(employeeInfo)}
+    </div>
     </div>
 </body>
 </html>
@@ -32,27 +26,25 @@ const generateHTML = employeeInfo => {
 };
 
 const appendEmployee = function(employeeInfo){
-generateHTML(employeeInfo);
-var employees = document.getElementById('employees');
+var employees = ``;
     if(employeeInfo.length>1){
         for(let i=1; i<employeeInfo.length; i++){
-            employees.appendChild(
+            employees.append(
                 `        
                 <div class="card">
                     <h3 class="card-header">${employeeInfo[i].name}</h3>
-                    <img class="icon"></img>
-                    <p class="role">Intern/Engineer</p> 
+                    <img class="icon" src='/'></img>
+                    <p class="role">${employeeInfo[i]}</p> 
                     <p class="id">${employeeInfo[i].id}</p>
                     <p class="email">${employeeInfo[i].email}</p>
-                    <p class="custom">Intern/Engineer Specifics</p>
+                    <p class="custom">${employeeInfo[i].github || employeeInfo[i].officeNumber || employeeInfo[i].school} </p>
                 </div>`
                 )
         }
-        return 
+        return employees;
     } else {
         return;
     }
 }
 
-
-module.exports = appendEmployee(employeeInfo);
+module.exports = generateHTML(employeeInfo);

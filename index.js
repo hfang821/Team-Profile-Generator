@@ -1,7 +1,7 @@
-const {writeFile, copyFile} = require('./utils/generate-site');
+//const {writeFile, copyFile} = require('./utils/generate-site');
 const inquirer = require('inquirer');
 //const fs = require('fs');
-const generatePage = require('./src/page-template');
+//const generatePage = require('./src/page-template');
 
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
