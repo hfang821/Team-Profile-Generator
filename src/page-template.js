@@ -15,7 +15,7 @@ const generateHTML = employeeInfo => {
     </header>
 
     <div id ="employees">
-        ${appendEmployee(employeeInfo)}
+     ${appendEmployee(employeeInfo)}
     </div>
     </div>
 </body>
@@ -27,17 +27,16 @@ const appendEmployee = function(employeeInfo){
 var employees = ``;
     if(employeeInfo.length>1){
         for(let i=1; i<employeeInfo.length; i++){
-            employees.append(
-                `        
+            employees=employees+`        
                 <div class="card">
                     <h3 class="card-header">${employeeInfo[i].name}</h3>
                     <img class="icon" src='/'></img>
-                    <p class="role">${employeeInfo[i]}</p> 
+                    <p class="role">${employeeInfo[i].role}</p> 
                     <p class="id">${employeeInfo[i].id}</p>
                     <p class="email">${employeeInfo[i].email}</p>
                     <p class="custom">${employeeInfo[i].github || employeeInfo[i].officeNumber || employeeInfo[i].school} </p>
                 </div>`
-                )
+                
         }
         return employees;
     } else {
@@ -45,4 +44,6 @@ var employees = ``;
     }
 }
 
-module.exports = generateHTML(employeeInfo);
+//do not use any () when exporting as it will invoke it automatically.
+module.exports = generateHTML;
+

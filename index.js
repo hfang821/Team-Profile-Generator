@@ -91,7 +91,7 @@ const getManager =()=>{
     ])
     .then((answers) => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-
+        manager.role = manager.getRole();
         allEmployees.push(manager);
         directoryPrompt();
     })
@@ -155,7 +155,7 @@ const addEngineer = ()  => {
     ])
     .then((answers) => {
         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-
+        engineer.role = engineer.getRole();
         allEmployees.push(engineer);
         directoryPrompt();
     })
@@ -219,7 +219,7 @@ const addIntern = ()  => {
     ])
     .then((answers) => {
         const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-
+        intern.role = intern.getRole();
         allEmployees.push(intern);
         directoryPrompt();
     })
@@ -227,7 +227,7 @@ const addIntern = ()  => {
 
 getManager();
 
-const finished = (allEmployees)  => {
+const finished = () => {
     console.log(allEmployees);
     const html = generatePage(allEmployees);
 
@@ -251,7 +251,7 @@ const finished = (allEmployees)  => {
     
     const copyFile = () => {
         return new Promise((resolve, reject) => {
-            fs.copyFile('./src.style.css', './dist/style.css', err => {
+            fs.copyFile('./src/style.css', './dist/style.css', err => {
                 if(err){
                     reject(err);
                     return;
