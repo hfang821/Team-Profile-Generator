@@ -20,6 +20,7 @@
 ## How to Install:
 
 Walk-around Video Link:
+https://drive.google.com/file/d/11Z5ok6JwgHpk3oPmSJ1Gj66DNILfzOJQ/view
 
 
 * Open Gitbash/terminal, navigate towards your project location from your root by using "cd ./ project location"
