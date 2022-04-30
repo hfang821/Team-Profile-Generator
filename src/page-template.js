@@ -16,7 +16,7 @@ const generateHTML = employeeInfo => {
         <h1>My Team</h1>    
     </header>
 
-    <div id ="employees">
+    <div id ="employees" class="card-deck">
      ${appendEmployee(employeeInfo)}
     </div>
     </div>
@@ -31,13 +31,13 @@ var employees = ``;
             employees=employees+`        
                 <div class="card">
                     <h3 class="card-header">${employeeInfo[i].name}</h3>
-                    <img class="icon" src='/'></img>
-                    <p class="role">${employeeInfo[i].role}</p> 
-                    <p class="id">${employeeInfo[i].id}</p>
-                    <p class="email">${employeeInfo[i].email}</p>
-                    <p class="custom">${appendCustom(employeeInfo[i])}</p>
+                    <img class="icon" src='${appendPath(employeeInfo[i])}'></img>
+                    <p class="role">Role: ${employeeInfo[i].role}</p> 
+                    <p class="id">Employee ID: ${employeeInfo[i].id}</p>
+                    <a href="mailto:${employeeInfo[i].email}">Email Address: ${employeeInfo[i].email}</a>
+                    <br>
+                    <a class="custom" href='${appendCustomPath(employeeInfo[i])}'>${appendCustom(employeeInfo[i])}</a>
                 </div>`
-                
         }
         return employees;
 }
@@ -59,8 +59,37 @@ var custom = ``;
         return custom;
 }
 
+const appendPath = function(employeeInfo) {
+    var path = ``;
+        //if employee is a manager
+        if(employeeInfo.role === 'Manager') {
+            path = path + '../assets/images/Manager.jpg';
+        } 
+        //if employee is an engineer
+        else if(employeeInfo.role === 'Engineer') {
+            path = path + '../assets/images/Engineer.jpg';
+        } 
+        //if the employee is a intern
+        else {
+            path = path + '../assets/images/Intern.jpg';
+        }
+        return path;
+}
 
-
+var appendCustomPath = function(employeeInfo) {
+    var path = ``;
+    if(employeeInfo.role === 'Manager') {
+        return path = path + 'https://www.google.com/search?q=' + employeeInfo.name;
+    } 
+    //if employee is an engineer
+    else if(employeeInfo.role === 'Engineer') {
+       return path = path + 'https://github.com/' + employeeInfo.github;
+    } 
+    //if the employee is a intern
+    else {
+        return path = path + 'https://www.google.com/search?q=' + employeeInfo.school;
+    }
+}
 //do not use any () when exporting as it will invoke it automatically.
 module.exports = generateHTML;
 

@@ -142,7 +142,7 @@ const addEngineer = ()  => {
 
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'github',
             message: 'Enter the Github Username of the Engineer. (Required)',
             validate: githubInput => {
                 if(githubInput) {
@@ -206,7 +206,7 @@ const addIntern = ()  => {
 
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'school',
             message: 'Enter the School name of the Intern. (Required)',
             validate: schoolInput => {
                 if(schoolInput) {
