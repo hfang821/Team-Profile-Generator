@@ -18,9 +18,11 @@
 * npm (jest)
 
 ## How to Install:
-
-Walk-around Video Link:
+Installation & Running-software Video Link:
 https://drive.google.com/file/d/11Z5ok6JwgHpk3oPmSJ1Gj66DNILfzOJQ/view
+
+Jest-Testing Video Link:
+https://drive.google.com/file/d/1m5w6PPccf6sDUYwbf5GQ60rXxiiQa28C/view
 
 
 * Open Gitbash/terminal, navigate towards your project location from your root by using "cd ./ project location"
