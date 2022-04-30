@@ -1,0 +1,10 @@
+.text-center{
+    padding: 50px;
+    background-color: lightskyblue;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 10%;
+}
