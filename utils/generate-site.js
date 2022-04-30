@@ -1,3 +1,4 @@
+//This page is obsolete and will be removed.
 const fs = require('fs');
 const fileContent = require('../index');
 
