@@ -263,10 +263,22 @@ const finished = () => {
             });
         });
     };
+    //the '.then' will execute the resolve function the promise is resolved. 
+    //The '.catch' will execute if the promise has an error and is rejected.
+    writeFile(html).then(result=>{
+        console.log(result);
+    })
+    .catch(err=>{
+        console.log(err);
+    });
 
-    writeFile(html);
-    copyFile();
 
+    copyFile().then(result=>{
+        console.log(result);
+    })
+    .catch(err=>{
+        console.log(err);
+    });
 }
 
 
